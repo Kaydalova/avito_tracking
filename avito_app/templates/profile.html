@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Привет, {{current_user.username}}! {% endblock %}
+{% block content %}
+<main>
+  <section class="container my-5">
+    <div class="row">
+      <p class="py-3 mb-3">
+        {% with messages = get_flashed_messages(category_filter=["email_confirmed"]) %}
+          {% if messages %}
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+      </p>
+      <h1>Привет, {{current_user.username}}!</h1>
+      <div class="col-12 col-lg-7 my-5">
+          <p> Email: {{ current_user.email }} </p>
+          <p> Дата регистрации: {{ current_user.created_on }}</p><br>
+ </head>
+ <body>
+
+    </body>
+  </section>
+</main>
+{% endblock %}
